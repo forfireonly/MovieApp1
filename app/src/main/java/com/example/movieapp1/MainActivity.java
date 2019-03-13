@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    public static String API_KEY = "YOUR-API-KEY";
+    public static String API_KEY = "3d51412658ec7072e6c6d9603afe81d0"; //"YOUR-API-KEY";
 
-    public  String choice = "popularity.desc";
+    public  String choice = "popular";
 
 
     //title, release date, movie poster, vote average, and plot synopsis(overview).
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.top_rated:
-                choice = "vote_average.desc";
+                choice = "top_rated";
                 try {
                     mAdapter = new DisplayingMoviesAdapter(this, getMoviePoster(choice), listener);//"vote_average.desc";
                 } catch (ExecutionException e) {
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                 //Log.v("choice", choice);
                 return true;
             case R.id.most_popular:
-                choice = "popularity.desc";
+                choice = "popular";
                 // Log.v("choice", choice);
                 try {
                     mAdapter = new DisplayingMoviesAdapter(this, getMoviePoster(choice), listener);
@@ -177,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < movieDetailsJSON.length(); i++) {
                     JSONObject temp_mov = movieDetailsJSON.getJSONObject(i);
                     imgUrl[i] = "http://image.tmdb.org/t/p/w500/" + temp_mov.getString("poster_path");
+                    //imgUrl[i+1] = "http://image.tmdb.org/t/p/w500/" + temp_mov.getString("poster_path");
+                   // i++;
                 }
             }}
 

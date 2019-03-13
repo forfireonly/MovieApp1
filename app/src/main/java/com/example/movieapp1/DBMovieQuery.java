@@ -27,7 +27,7 @@ public class DBMovieQuery extends AsyncTask<String, Void, String> {
             String choice = params[0];
             URL url = null;
 
-            url = new URL("https://api.themoviedb.org/3/discover/movie?api_key="  + API_KEY + "&sort_by=" +choice);
+            url = new URL("http://api.themoviedb.org/3/movie/" + choice + "?api_key=" + API_KEY);
 
 
             urlConnection = (HttpURLConnection) url.openConnection();
